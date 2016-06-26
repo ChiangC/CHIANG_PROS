@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="66.0dp"
+        android:layout_height="66.0dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@mipmap/logistics_none_info_signal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:maxWidth="170.0dp"
+        android:textColor="@color/logistics_text_black_color"
+        android:textSize="@dimen/font14_sp"
+        android:text="没有物流跟踪信息"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/font10"
+        android:autoLink="phone"
+        android:lineSpacingExtra="@dimen/font4"
+        android:maxWidth="@dimen/font180"
+        android:textColorLink="@color/logistics_text_blue_color"
+        android:text="18888888888"/>
+
+</LinearLayout>

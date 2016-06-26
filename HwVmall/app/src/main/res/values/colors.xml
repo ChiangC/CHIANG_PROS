@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="background">#fff7f7f7</color>
+    <color name="gray_text">#ff7c7c7c</color>
+    <color name="black_fifty">#7f000000</color>
+    <color name="black_sixty">#99000000</color>
+    <color name="black_sixty_five">#a5000000</color>
+    <color name="black_seventy">#b3000000</color>
+    <color name="black_seventy_five">#bf000000</color>
+    <color name="black_eighty">#cc000000</color>
+    <color name="black_eighty_five">#d8000000</color>
+    <color name="blcak_thirty">#4c000000</color>
+    <color name="white_ninty">#e5ffffff</color>
+    <color name="white_thirty">#4cffffff</color>
+    <color name="logistic_left_divider_color">#ffc7c9c8</color>
+    <color name="logistics_text_black_color">#ff414141</color>
+    <color name="logistics_text_blue_color">#ff28c0c6</color>
+    <color name="logistics_item_current_time_text_color">#fff03f01</color>
+    <color name="logistics_item_before_time_text_color">@color/gray_text</color>
+    <color name="transparent">#00000000</color>
+</resources>

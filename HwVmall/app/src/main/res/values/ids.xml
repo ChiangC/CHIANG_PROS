@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="logistics_bottombar_layout" type="id">false</item>
+    <item name="tv_label_logistic_company" type="id">false</item>
+    <item name="tv_logistic_company_name" type="id">false</item>
+    <item name="tv_label_logistic_no" type="id">false</item>
+    <item name="tv_logistic_no" type="id">false</item>
+    <item name="logistics_none_info" type="id">false</item>
+    <item name="logistics_left_divider" type="id">false</item>
+    <item name="view_logistic_item" type="id">false</item>
+    <item name="logistics_item_time_layout" type="id">false</item>
+    <item name="tv_logistic_item_time_date" type="id">false</item>
+    <item name="tv_logistic_item_time_detail" type="id">false</item>
+    <item name="iv_logistic_item_point" type="id">false</item>
+    <item name="tv_logistic_item_content" type="id">false</item>
+    <item name="lv_logistics_list" type="id">false</item>
+    <item name="rl_logistics_none_info_layout" type="id">false</item>
+</resources>

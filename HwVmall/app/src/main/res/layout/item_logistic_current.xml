@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="30.0dp">
+
+    <LinearLayout
+        android:id="@id/logistics_item_time_layout"
+        android:layout_width="64.0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/font10"
+        android:layout_marginTop="@dimen/font3"
+        android:gravity="right"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@id/tv_logistic_item_time_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textStyle="bold"
+            android:textColor="@color/logistics_item_current_time_text_color"
+            android:textSize="9.0sp"/>
+        <!--android:text="2016/06/26"-->
+
+        <TextView
+            android:id="@id/tv_logistic_item_time_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textColor="@color/logistics_item_current_time_text_color"
+            android:textSize="9.0sp"/>
+
+        <!--android:text="16:27:30"-->
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@id/iv_logistic_item_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/font3"
+        android:layout_marginTop="@dimen/font5"
+        android:background="@mipmap/logistic_current_point"
+        android:layout_toRightOf="@id/logistics_item_time_layout"/>
+
+    <TextView
+        android:id="@id/tv_logistic_item_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/font13"
+        android:layout_marginRight="@dimen/font18"
+        android:layout_toRightOf="@id/iv_logistic_item_point"
+        android:lineSpacingExtra="@dimen/font3"
+        android:textColor="@color/logistics_item_current_time_text_color"
+        android:textSize="@dimen/font12_sp"/>
+    <!--android:text="快件离开【广州集散中心】,正发往【长沙集散中心】"-->
+
+</RelativeLayout>
