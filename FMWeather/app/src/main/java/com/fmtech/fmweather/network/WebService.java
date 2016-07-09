@@ -1,4 +1,4 @@
-package com.fmtech.fmweather.network.manager;
+package com.fmtech.fmweather.network;
 
 /**
  * ==================================================================
@@ -13,22 +13,24 @@ package com.fmtech.fmweather.network.manager;
  * ==================================================================
  */
 
-public class RequestManager {
+public class WebService {
 
-    private static RequestManager sInstance;
+    private static WebService sInstance;
 
-    private RequestManager(){
+    private WebService(){
 
     }
 
-    public static RequestManager instance(){
+    public static WebService instance(){
         if(null == sInstance){
             synchronized (sInstance){
                 if(null == sInstance){
-                    sInstance = new RequestManager();
+                    sInstance = new WebService();
                 }
             }
         }
         return sInstance;
     }
+
+
 }
