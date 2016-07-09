@@ -1,0 +1,17 @@
+ext{
+    android = [
+            compileSdkVersion: 23,
+            buildToolsVersion: "24.0.0",
+            applicationId    : "com.fmtech.fmweather",
+            minSdkVersion    : 16,
+            targetSdkVersion : 23,
+            versionCode      : 1,
+            versionName      : "1.0.0",
+            resConfigs       : "zh"
+    ]
+
+    def supportLibVersion = "23.4.0"
+    def butterKnifeVersion = "7.0.1"
+
+
+}
