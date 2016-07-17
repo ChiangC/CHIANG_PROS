@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <item type="id" name="drawer_layout">false</item>
+    <item type="id" name="appbar">false</item>
+    <item type="id" name="toolbar">false</item>
+    <item type="id" name="coordinator_layout">false</item>
+    <item type="id" name="toolbar_layout">false</item>
+    <item type="id" name="main_content">false</item>
+    <item type="id" name="floating_actionbar">false</item>
+    <item type="id" name="nav_city">false</item>
+    <item type="id" name="nav_multi_cities">false</item>
+    <item type="id" name="nav_setting">false</item>
+    <item type="id" name="nav_about">false</item>
 </resources>
