@@ -2,6 +2,13 @@ package com.fmtech.fmweather;
 
 import android.app.Application;
 
+import com.fmtech.fmweather.common.AppBlockCanaryContext;
+import com.fmtech.fmweather.util.CrashHandler;
+import com.fmtech.fmweather.util.PreferenceUtils;
+import com.github.moduth.blockcanary.BlockCanary;
+import com.squareup.leakcanary.LeakCanary;
+import com.tencent.bugly.crashreport.CrashReport;
+
 /**
  * ==================================================================
  * Copyright (C) 2016 FMTech All Rights Reserved.
@@ -27,6 +34,15 @@ public class FMApplication extends Application{
     public void onCreate() {
         super.onCreate();
         mAppContext = this;
+
+        PreferenceUtils.init(getAppContext());
+
+        CrashHandler.init(new CrashHandler(getAppContext()));
+
+        CrashReport.initCrashReport(getApplicationContext(), "900028220", false);
+
+//        BlockCanary.install(this, new AppBlockCanaryContext()).start();
+//        LeakCanary.install(this);
 
 
     }
