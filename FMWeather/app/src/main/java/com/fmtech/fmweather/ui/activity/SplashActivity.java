@@ -11,6 +11,11 @@ import android.support.v7.app.AppCompatActivity;
 import com.fmtech.fmweather.MainActivity;
 
 import java.lang.ref.WeakReference;
+import java.util.concurrent.TimeUnit;
+
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
 
 /**
  * ==================================================================
@@ -25,7 +30,7 @@ import java.lang.ref.WeakReference;
  * ==================================================================
  */
 
-public class SplashActivity extends AppCompatActivity{
+public class SplashActivity extends BaseActivity{
 
     private SplashHandler mHandler = new SplashHandler(Looper.getMainLooper(), SplashActivity.this);
 
@@ -33,7 +38,15 @@ public class SplashActivity extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mHandler.sendEmptyMessageDelayed(0, 1000);
+//        mHandler.sendEmptyMessageDelayed(0, 1000);
+        Observable.timer(1, TimeUnit.SECONDS, AndroidSchedulers.mainThread())
+                .map(new Func1<Long, Object>() {
+                    @Override
+                    public Object call(Long aLong) {
+                        gotoMainPage();
+                        return null;
+                    }
+                }).subscribe();
     }
 
     class SplashHandler extends Handler{
@@ -47,10 +60,14 @@ public class SplashActivity extends AppCompatActivity{
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-            SplashActivity.this.startActivity(intent);
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            SplashActivity.this.finish();
+            gotoMainPage();
         }
+    }
+
+    private void gotoMainPage(){
+        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+        SplashActivity.this.startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        SplashActivity.this.finish();
     }
 }
