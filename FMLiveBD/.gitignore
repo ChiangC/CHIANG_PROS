@@ -45,6 +45,7 @@ Thumbs.db
 # Build output directies
 target/
 build/
+.externalNativeBuild/
 
 # IntelliJ specific files/directories
 out
@@ -75,3 +76,4 @@ bin/
 
 # IntelliJ / Android Studio related files
 local.properties
+
