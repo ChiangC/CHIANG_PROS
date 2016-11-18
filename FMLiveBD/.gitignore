@@ -5,7 +5,7 @@
 *.dll
 *.exe
 *.o
-*.so
+
 
 # Packages #
 ############
@@ -15,7 +15,6 @@
 *.dmg
 *.gz
 *.iso
-*.jar
 *.rar
 *.tar
 *.zip
