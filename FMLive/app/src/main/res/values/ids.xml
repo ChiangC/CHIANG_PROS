@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="rl_login_root" type="id">false</item>
+    <item name="til_login" type="id">false</item>
+    <item name="til_password" type="id">false</item>
+    <item name="et_login" type="id">false</item>
+    <item name="et_password" type="id">false</item>
+    <item name="login" type="id">false</item>
+    <item name="btn_login" type="id">false</item>
+    <item name="progressbar" type="id">false</item>
+    <item name="btn_register" type="id">false</item>
+    <item name="btn_verify_code" type="id">false</item>
+</resources>

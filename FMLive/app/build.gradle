@@ -39,5 +39,12 @@ dependencies {
 
     compile 'com.android.support:appcompat-v7:24.2.1'
 
+    compile 'com.android.support:design:24.+'
+    compile 'com.android.support:recyclerview-v7:24.+'
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.volley:volley:1.0.0'
+    compile 'com.github.ctiao:dfm:0.4.4'
+
 
 }

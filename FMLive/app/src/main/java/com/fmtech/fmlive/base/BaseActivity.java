@@ -80,7 +80,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 toast.show();
             }
         });
-        
+
         return toast;
     }
 
