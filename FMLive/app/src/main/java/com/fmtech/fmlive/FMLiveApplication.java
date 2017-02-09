@@ -28,6 +28,11 @@ public class FMLiveApplication extends Application {
         initLiveSDK();
     }
 
+    public static FMLiveApplication getApplication() {
+        return sInstance;
+    }
+
+
     private void initLiveSDK(){
         int[] sdkver = TXLivePusher.getSDKVersion();
         if (sdkver != null && sdkver.length >= 3) {

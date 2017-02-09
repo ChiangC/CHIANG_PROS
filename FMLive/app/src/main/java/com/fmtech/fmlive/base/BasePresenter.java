@@ -14,4 +14,8 @@ package com.fmtech.fmlive.base;
 
 public interface BasePresenter {
 
+    void onStart();
+
+    void onFinish();
+
 }
