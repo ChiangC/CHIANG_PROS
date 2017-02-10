@@ -99,8 +99,8 @@
     <string name="private_mode_on">隐私模式已开启</string>
 
     <!-- msgadapter -->
-    <item name="tag_first" type="id"></item>
-    <item name="tag_second" type="id"></item>
+    <item type="id" name="tag_first"></item>
+    <item type="id" name="tag_second"></item>
 
 
     <!-- userinfo fragment-->
@@ -189,5 +189,5 @@
     <string name="ping_NJ">南京</string>
     <string name="ping_HZ">杭州</string>
     <string name="ping_GZ">广州</string>
-
 </resources>
+

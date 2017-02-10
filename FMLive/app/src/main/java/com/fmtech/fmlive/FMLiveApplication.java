@@ -26,6 +26,7 @@ public class FMLiveApplication extends Application {
         sInstance = this;
 
         initLiveSDK();
+
     }
 
     public static FMLiveApplication getApplication() {

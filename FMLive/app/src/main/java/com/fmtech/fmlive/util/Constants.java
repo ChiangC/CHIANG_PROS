@@ -1,4 +1,4 @@
-package com.fmtech.fmlive.utils;
+package com.fmtech.fmlive.util;
 
 /**
  * ==================================================================
