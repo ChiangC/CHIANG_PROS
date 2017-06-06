@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ListView
+        android:id="@+id/lv_persons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/quick_index_bar"
+        />
+    <com.fmtech.quickindexbar.view.QuickIndexBar
+        android:id="@+id/quick_index_bar"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="#ff0000"/>
+
+    <TextView
+        android:id="@+id/tv_letter_info"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_index"
+        android:gravity="center"
+        android:textSize="32sp"
+        android:visibility="gone"
+        android:textColor="#ffffff"
+        android:layout_centerInParent="true"
+        android:text="A" />
+</RelativeLayout>
