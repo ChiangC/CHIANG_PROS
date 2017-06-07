@@ -82,6 +82,7 @@ public class CircleProgressBar extends View {
         mPaint.setColor(mTextColor);
         mPaint.setTextSize(mTextSize);
         mPaint.setAntiAlias(true);
+//        mPaint.setTextAlign(Paint.Align.CENTER);
         mPaint.setTypeface(Typeface.DEFAULT_BOLD);
         String percent = (mProgress * 100 / mMaxProgress) + "%";
         float textWidth = mPaint.measureText(percent);
