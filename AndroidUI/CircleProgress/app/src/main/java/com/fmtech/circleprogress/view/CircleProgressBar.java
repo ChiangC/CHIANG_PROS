@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -16,12 +17,12 @@ import com.fmtech.circleprogress.R;
 
 /**
  * ==================================================================
- * Copyright (C) 2017 MTel Limited All Rights Reserved.
+ * Copyright (C) 2017 FMTech Limited All Rights Reserved.
  *
  * @author Drew.Chiang
  * @version v1.0.0
- *
- * ==================================================================
+ *          <p>
+ *          ==================================================================
  */
 
 
@@ -33,10 +34,10 @@ public class CircleProgressBar extends View {
     private int mCircleColor;
     private int mProgressColor;
     private int mMaxProgress;
-    private float mCircleWidth;
+    private float mCircleStrokeWidth;
     private int mTextColor;
     private float mTextSize;
-    private int mProgress = 90;
+    private int mProgress = 0;
     private float mRadius;
     private float mHalfWidth;
 
@@ -54,9 +55,9 @@ public class CircleProgressBar extends View {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CircleProgressBar);
         mCircleColor = typedArray.getColor(R.styleable.CircleProgressBar_circleColor, mDefaultCircleColor);
         mProgressColor = typedArray.getColor(R.styleable.CircleProgressBar_progressColor, mDefaultProgressColor);
-        mMaxProgress = typedArray.getInt(R.styleable.CircleProgressBar_maxProgress, 360);
+        mMaxProgress = typedArray.getInt(R.styleable.CircleProgressBar_maxProgress, 100);
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        mCircleWidth = typedArray.getDimension(R.styleable.CircleProgressBar_circleWidth, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, displayMetrics));
+        mCircleStrokeWidth = typedArray.getDimension(R.styleable.CircleProgressBar_circleStrokeWidth, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, displayMetrics));
         mTextColor = typedArray.getColor(R.styleable.CircleProgressBar_textColor, mDefaultProgressColor);
         mTextSize = typedArray.getDimension(R.styleable.CircleProgressBar_textSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 20, displayMetrics));
         typedArray.recycle();
@@ -66,39 +67,42 @@ public class CircleProgressBar extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        mHalfWidth = getWidth()/2;
-        mRadius = mHalfWidth - mCircleWidth/2;
+        mHalfWidth = getWidth() / 2;
+        mRadius = mHalfWidth - mCircleStrokeWidth / 2;
 
         mPaint = new Paint();
 
         mPaint.setColor(mCircleColor);
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(mCircleWidth);
+        mPaint.setStrokeWidth(mCircleStrokeWidth);
         canvas.drawCircle(mHalfWidth, mHalfWidth, mRadius, mPaint);
 
         mPaint.reset();
         mPaint.setColor(mTextColor);
         mPaint.setTextSize(mTextSize);
         mPaint.setAntiAlias(true);
-        String percent = (mProgress*100/mMaxProgress)+"%";
+        mPaint.setTypeface(Typeface.DEFAULT_BOLD);
+        String percent = (mProgress * 100 / mMaxProgress) + "%";
         float textWidth = mPaint.measureText(percent);
         Paint.FontMetrics fontMetrics = mPaint.getFontMetrics();
-        canvas.drawText(percent, (mHalfWidth - textWidth/2), mHalfWidth + (fontMetrics.bottom - fontMetrics.top)/2, mPaint);
+        float baseline = mHalfWidth + (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
+//        canvas.drawText(percent, (mHalfWidth - textWidth/2), mHalfWidth + (fontMetrics.bottom - fontMetrics.top)/2, mPaint);
+        canvas.drawText(percent, (mHalfWidth - textWidth / 2), baseline, mPaint);
 
         drawProgress(canvas);
 
     }
 
-    private void drawProgress(Canvas canvas){
+    private void drawProgress(Canvas canvas) {
         mPaint.reset();
         mPaint.setColor(mProgressColor);
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
-        mPaint.setStrokeWidth(mCircleWidth);
-        RectF oval = new RectF(mCircleWidth/2, mCircleWidth/2, mHalfWidth*2- mCircleWidth/2, mHalfWidth*2 - mCircleWidth/2);
-        canvas.drawArc(oval, -90f, mProgress*360f/mMaxProgress, false, mPaint);
+        mPaint.setStrokeWidth(mCircleStrokeWidth);
+        RectF oval = new RectF(mHalfWidth - mRadius, mHalfWidth - mRadius, mHalfWidth + mRadius, mHalfWidth + mRadius);
+        canvas.drawArc(oval, -90f, mProgress * 360f / mMaxProgress, false, mPaint);
     }
 
     @Override
@@ -107,5 +111,16 @@ public class CircleProgressBar extends View {
 
     }
 
+    public void setProgress(int progress) {
+        if(progress < 0){
+            return;
+        }
+        if(progress > mMaxProgress){
+            mProgress = mMaxProgress;
+        }else{
+            mProgress = progress;
+        }
+        invalidate();
+    }
 
 }

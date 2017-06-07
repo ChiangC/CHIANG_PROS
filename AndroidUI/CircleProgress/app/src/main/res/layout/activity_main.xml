@@ -8,12 +8,13 @@
     tools:context="com.fmtech.circleprogress.MainActivity">
 
     <com.fmtech.circleprogress.view.CircleProgressBar
+        android:id="@+id/circle_progressbar"
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:circleColor="@color/color_pumice"
         app:progressColor="@color/color_blue"
-        app:maxProgress="360"
-        app:circleWidth="16dp"
+        app:maxProgress="100"
+        app:circleStrokeWidth="16dp"
         app:textColor="@color/colorAccent"
         app:textSize="20sp"/>
 
