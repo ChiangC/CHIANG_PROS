@@ -7,9 +7,9 @@
     android:orientation="vertical"
     tools:context="com.fmtech.flowlayout.MainActivity">
 
-    <com.fmtech.flowlayout.view.FlowLayout
+    <com.fmtech.flowlayout.widget.FlowLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="wrap_content"
@@ -292,7 +292,26 @@
             android:text="Artificial Intelligence"
             android:textColor="@android:color/white"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:padding="6dp"
+            android:background="@drawable/label_bg"
+            android:text="!!!"
+            android:textColor="@android:color/white"/>
 
-    </com.fmtech.flowlayout.view.FlowLayout>
+    </com.fmtech.flowlayout.widget.FlowLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:padding="6dp"
+        android:background="@drawable/label_bg_light_green"
+        android:text="Artificial Intelligence Not in Flow layout"
+        android:textColor="@android:color/white"/>
 
 </LinearLayout>
