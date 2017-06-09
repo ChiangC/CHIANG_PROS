@@ -60,43 +60,32 @@ public class FlowLayout extends ViewGroup {
         mLines = new ArrayList<>();
 
         final int totalWidth = widthSize;
-        int lineWidth = 0;
-
         int childCount = getChildCount();
 
         int parentHorizontalPadding = getPaddingLeft() + getPaddingRight();
-        int parentVerticalPadding = getPaddingTop() + getPaddingBottom();
         int widthUsed = parentHorizontalPadding;
-        int heightUsed = parentVerticalPadding;
         Line line = new Line();
         int i = 0;
-        int lineHeight = 0;
-        System.out.println("-------childCount:"+childCount);
+
         for(; i < childCount; i++){
             View child = getChildAt(i);
             MarginLayoutParams layoutParams = (MarginLayoutParams) child.getLayoutParams();
-            widthUsed += (layoutParams.leftMargin + layoutParams.rightMargin);
-            measureChildWithMargins(child, widthMeasureSpec, widthUsed, heightMeasureSpec, parentVerticalPadding + lineHeight);
-//            measureChild(child, widthMeasureSpec, heightMeasureSpec);
-            int childWidth = child.getMeasuredWidth();
-            int childHeightVerticalMargin = child.getMeasuredHeight() + (layoutParams.topMargin + layoutParams.bottomMargin);
-            lineHeight = Math.max(lineHeight, childHeightVerticalMargin);
+            measureChild(child, widthMeasureSpec, heightMeasureSpec);
+            int childWidthAndHorizontalMargin = (layoutParams.leftMargin + layoutParams.rightMargin + child.getMeasuredWidth());
 
-            System.out.println("-------widthUsed:"+(widthUsed + childWidth));
-            if((widthUsed + childWidth) > totalWidth){
-                System.out.println("-------New line-------");
-                // new line
+            if((widthUsed + childWidthAndHorizontalMargin) > totalWidth){
                 mLines.add(line);
-                heightUsed += lineHeight;
 
+                // new line
                 line = new Line();
                 line.addChild(child);
 
                 widthUsed = parentHorizontalPadding;
+                widthUsed += childWidthAndHorizontalMargin;
 
             }else{
                 line.addChild(child);
-                widthUsed += childWidth;
+                widthUsed += childWidthAndHorizontalMargin;
             }
         }
         if(i == childCount && line.getChildCount() > 0 && !mLines.contains(line)){

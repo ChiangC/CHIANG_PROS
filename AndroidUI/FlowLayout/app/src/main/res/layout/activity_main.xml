@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="28dp"
             android:layout_marginTop="20dp"
             android:padding="6dp"
             android:background="@drawable/label_bg_light_blue"
@@ -44,7 +44,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="28dp"
             android:layout_marginTop="10dp"
             android:padding="6dp"
             android:background="@drawable/label_bg_light_green"
@@ -104,7 +104,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="3dp"
             android:layout_marginLeft="30dp"
             android:padding="6dp"
             android:background="@drawable/label_bg"
@@ -214,8 +214,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="18dp"
             android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
             android:padding="6dp"
             android:background="@drawable/label_bg"
             android:text="Android"
@@ -260,6 +261,37 @@
             android:background="@drawable/label_bg"
             android:text="Kotlin"
             android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:padding="6dp"
+            android:background="@drawable/label_bg_green"
+            android:text="ChiangCMBA"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:padding="6dp"
+            android:background="@drawable/label_bg_light_blue"
+            android:text="Likes"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:padding="6dp"
+            android:background="@drawable/label_bg_light_green"
+            android:text="Artificial Intelligence"
+            android:textColor="@android:color/white"/>
+
 
     </com.fmtech.flowlayout.view.FlowLayout>
 
