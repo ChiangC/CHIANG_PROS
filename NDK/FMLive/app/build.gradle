@@ -12,8 +12,20 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                cppFlags ""
+                cppFlags.add("-DANDROID")
+                cppFlags.add("-fexceptions")
+                cppFlags.add("-frtti")
             }
+        }
+
+        ndk {
+            // Specifies the ABI configurations of your native
+            // libraries Gradle should build and package with your APK.
+            abiFilters 'armeabi', 'armeabi-v7a'
+
+            //x86, x86_64, arm64-v8a will result failed building.
+            /*abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a',
+                    'arm64-v8a'*/
         }
     }
     buildTypes {

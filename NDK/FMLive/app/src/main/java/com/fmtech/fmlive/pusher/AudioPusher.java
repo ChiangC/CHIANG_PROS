@@ -52,14 +52,17 @@ public class AudioPusher extends Pusher{
 
 		@Override
 		public void run() {
-			mAudioRecord.startRecording();
+			try {
+				mAudioRecord.startRecording();
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			}
 
 			while(isPushing){
 				byte[] audioData = new byte[minBufferSize];
 				int length = mAudioRecord.read(audioData, 0, audioData.length);
 				if(length > 0){
 					mPushNative.fireAudio(audioData, length);
-//					System.out.println("-------音频编码");
 				}
 			}
 		}

@@ -4,14 +4,14 @@ import com.fmtech.fmlive.jni.PushNative;
 import com.fmtech.fmlive.listener.LiveStateChangeListener;
 import com.fmtech.fmlive.pusher.LivePusher;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback;
-import android.support.v4.content.ContextCompat;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -21,6 +21,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity implements LiveStateChangeListener{
 
 	private static final String URL = "rtmp://106.14.33.215:1935/live/fmlive";
+	private static final int REQUEST_CAMERA_AUDIO_PERMISSION_CODE = 100;
 	private LivePusher mLivePusher;
 	private boolean isPushing;
 	private Button mPushBtn;
@@ -55,22 +56,20 @@ public class MainActivity extends Activity implements LiveStateChangeListener{
 	
 	public void startLive(View view){
 		if (Build.VERSION.SDK_INT>22){
-            if (ContextCompat.checkSelfPermission(MainActivity.this,
-                    android.Manifest.permission.CAMERA)!= PackageManager.PERMISSION_GRANTED){
+            if (ActivityCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.CAMERA)!= PackageManager.PERMISSION_GRANTED){
                
-                ActivityCompat.requestPermissions(MainActivity.this,
-                        new String[]{android.Manifest.permission.CAMERA}, 100);
+                ActivityCompat.requestPermissions(MainActivity.this, new String[]{android.Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO}, REQUEST_CAMERA_AUDIO_PERMISSION_CODE);
 
             }else {
-            	startLiveL();
+            	startLive();
             }
         }else {
-        	startLiveL();
+        	startLive();
         }
 		
 	}
 	
-	private void startLiveL(){
+	private void startLive(){
 		if(!isPushing){
 			isPushing = true;
 			mLivePusher.startPush(URL, this);
@@ -90,7 +89,22 @@ public class MainActivity extends Activity implements LiveStateChangeListener{
 	public void onError(int code) {
 		mHandler.sendEmptyMessage(code);
 	}
-	
-	
-	
+
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+		if(requestCode == REQUEST_CAMERA_AUDIO_PERMISSION_CODE && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+			int size = grantResults.length;
+			boolean granted = true;
+			for(int i=0;i < size; i++){
+				if(grantResults[i] != PackageManager.PERMISSION_GRANTED){
+					granted = false;
+				}
+			}
+			if(granted) {
+				startLive();
+			}
+		}
+	}
 }

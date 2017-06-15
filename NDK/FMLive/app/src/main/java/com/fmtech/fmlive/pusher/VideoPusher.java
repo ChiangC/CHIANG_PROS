@@ -80,27 +80,39 @@ public class VideoPusher extends Pusher implements SurfaceHolder.Callback,Previe
 			mCamera = Camera.open(mVideoParams.getCameraId());
 			mCamera.setPreviewDisplay(mSurfaceHolder);
 			mCamera.setPreviewCallbackWithBuffer(this);
+
 			Camera.Parameters parameters = mCamera.getParameters();
-//			parameters.setPreviewFormat(ImageFormat.NV21);//YUV
+			parameters.setPreviewFormat(ImageFormat.NV21);//YUV
 			List<Integer> sIntegers = parameters.getSupportedPreviewFormats();
-			parameters.setPreviewSize(mVideoParams.getWidth(), mVideoParams.getHeight());
+//			parameters.setPreviewSize(mVideoParams.getWidth(), mVideoParams.getHeight());
 //			List<int[]> list =parameters.getSupportedPreviewFpsRange();
 //			parameters.setPreviewFpsRange(24, mVideoParams.getFps());
-//			List<Size> sizes = parameters.getSupportedPreviewSizes();
-//			for(Size size:sizes){
-//				System.out.println("-------previewsize#width:"+size.width+", height:"+size.height);
-//			}
+/*			List<Size> sizes = parameters.getSupportedPreviewSizes();
+			for(Size size:sizes){
+				System.out.println("-------previewsize#width:"+size.width+", height:"+size.height);
+			}
 			for(Integer size:sIntegers){
 				System.out.print("-------"+size);
-			}
+			}*/
+
+			List<Integer> formats = parameters.getSupportedPreviewFormats();
+			System.out.println("-------formats.size:"+formats.size());
+
 			mCamera.setParameters(parameters);
 
-			//获取预览图像数据
 			mCamera.setDisplayOrientation(90);
 			mCallbackBuffer = new byte[mVideoParams.getWidth()*mVideoParams.getHeight()*4];
 			mCamera.addCallbackBuffer(mCallbackBuffer);
 
 			mCamera.startPreview();
+
+			mCamera.autoFocus(new Camera.AutoFocusCallback() {
+				@Override
+				public void onAutoFocus(boolean success, Camera camera) {
+
+				}
+			});
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
