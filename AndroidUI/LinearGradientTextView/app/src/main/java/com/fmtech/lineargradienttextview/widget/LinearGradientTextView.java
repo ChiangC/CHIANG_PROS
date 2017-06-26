@@ -1,7 +1,10 @@
 package com.fmtech.lineargradienttextview.widget;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.LinearGradient;
 import android.support.annotation.Nullable;
+import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -21,6 +24,9 @@ import android.widget.TextView;
 
 public class LinearGradientTextView extends TextView {
 
+    private TextPaint mTextPaint;
+    private LinearGradient mLinearGradient;
+
     public LinearGradientTextView(Context context) {
         super(context);
     }
@@ -31,5 +37,21 @@ public class LinearGradientTextView extends TextView {
 
     public LinearGradientTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        mTextPaint = getPaint();
+
+        mLinearGradient = new LinearGradient();
+        mTextPaint.setShader();
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+
     }
 }
