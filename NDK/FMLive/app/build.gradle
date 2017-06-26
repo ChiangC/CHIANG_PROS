@@ -12,6 +12,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
+                arguments '-DANDROID_PLATFORM=android-9', '-DANDROID_TOOLCHAIN=clang', '-DANDROID_STL=gnustl_static'
                 cppFlags.add("-DANDROID")
                 cppFlags.add("-fexceptions")
                 cppFlags.add("-frtti")
@@ -34,15 +35,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    externalNativeBuild {
-//        cmake {
-//            path "CMakeLists.txt"
-//        }
-//    }
 
     externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
+    /*externalNativeBuild {
         ndkBuild {
             path "src/main/cpp/Android.mk"
+        }
+    }*/
+
+    sourceSets {
+        main {
+            // copy .a .so to APK
+            jniLibs.srcDirs = ['src/main/jniLibs/']
         }
     }
 }

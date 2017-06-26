@@ -10,14 +10,6 @@ cmake_minimum_required(VERSION 3.4.1)
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
-add_library( # Sets the name of the library.
-             native-lib
-
-             # Sets the library as a shared library.
-             SHARED
-
-             # Provides a relative path to your source file(s).
-             src/main/cpp/native-lib.cpp )
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -25,20 +17,28 @@ add_library( # Sets the name of the library.
 # you want to add. CMake verifies that the library exists before
 # completing its build.
 
-find_library( # Sets the name of the path variable.
-              log-lib
-
-              # Specifies the name of the NDK library that
-              # you want CMake to locate.
-              log )
 
 # Specifies libraries CMake should link to your target library. You
 # can link multiple libraries, such as libraries you define in this
 # build script, prebuilt third-party libraries, or system libraries.
 
-target_link_libraries( # Specifies the target library.
-                       native-lib
+#======================================================================
+set(PROJECT_DIR /Users/mtelnet/Documents/CHIANG/CHIANG_PROS/NDK/FMLive/app)
 
-                       # Links the target library to the log library
-                       # included in the NDK.
-                       ${log-lib} )
+add_library(x264 STATIC IMPORTED)
+set_target_properties(x264 PROPERTIES IMPORTED_LOCATION ${PROJECT_DIR}/src/main/jniLibs/libx264.a )
+
+add_library(faac STATIC IMPORTED)
+set_target_properties(faac PROPERTIES IMPORTED_LOCATION ${PROJECT_DIR}/src/main/jniLibs/libfaac.a )
+
+add_library(rtmpdump STATIC IMPORTED)
+set_target_properties(rtmpdump PROPERTIES IMPORTED_LOCATION ${PROJECT_DIR}/src/main/jniLibs/librtmp.a )
+
+add_library(FMLive SHARED  src/main/cpp/FMLive.c  src/main/cpp/queue.c)
+
+include_directories(src/main/cpp src/main/cpp/faac/include/ src/main/cpp/rtmpdump/include/ src/main/cpp/x264/include/)
+
+
+find_library(log-lib log)
+
+target_link_libraries( FMLive x264 faac rtmpdump ${log-lib})

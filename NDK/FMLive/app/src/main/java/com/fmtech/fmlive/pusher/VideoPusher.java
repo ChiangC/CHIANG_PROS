@@ -84,14 +84,14 @@ public class VideoPusher extends Pusher implements SurfaceHolder.Callback,Previe
 			Camera.Parameters parameters = mCamera.getParameters();
 			parameters.setPreviewFormat(ImageFormat.NV21);//YUV
 			List<Integer> sIntegers = parameters.getSupportedPreviewFormats();
-//			parameters.setPreviewSize(mVideoParams.getWidth(), mVideoParams.getHeight());
+			parameters.setPreviewSize(mVideoParams.getWidth(), mVideoParams.getHeight());
 //			List<int[]> list =parameters.getSupportedPreviewFpsRange();
 //			parameters.setPreviewFpsRange(24, mVideoParams.getFps());
-/*			List<Size> sizes = parameters.getSupportedPreviewSizes();
+			List<Size> sizes = parameters.getSupportedPreviewSizes();
 			for(Size size:sizes){
 				System.out.println("-------previewsize#width:"+size.width+", height:"+size.height);
 			}
-			for(Integer size:sIntegers){
+			/*for(Integer size:sIntegers){
 				System.out.print("-------"+size);
 			}*/
 
