@@ -50,7 +50,7 @@ public class Constants {
     public static final String SVR_RETURN_DATA  = "returnData";
 
     //主播退出广播字段
-    public static final String EXIT_APP         = "EXIT_APP";
+    public static final String EXIT_APP         = "com.fmtech.fmlive.action.EXIT_APP";
 
     public static final int USER_INFO_MAXLEN    = 20;
     public static final int TV_TITLE_MAX_LEN    = 30;

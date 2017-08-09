@@ -189,5 +189,11 @@
     <string name="ping_NJ">南京</string>
     <string name="ping_HZ">杭州</string>
     <string name="ping_GZ">广州</string>
+
+    <string name="foreground_service_start">Forground service started</string>
+    <string name="recording_in_progress">Recording in progress</string>
+    <string name="location_service_not_available">Location Service not available</string>
+    <string name="enable_location_service">Enable Location Service</string>
+
 </resources>
 

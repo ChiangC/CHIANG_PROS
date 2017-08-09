@@ -2,6 +2,8 @@ package com.fmtech.fmlive;
 
 import android.app.Application;
 import android.util.Log;
+
+import com.fmtech.fmlive.logic.IMInitMgr;
 import com.tencent.rtmp.TXLivePusher;
 
 /**
@@ -25,7 +27,7 @@ public class FMLiveApplication extends Application {
         super.onCreate();
         sInstance = this;
 
-        initLiveSDK();
+        initSDK();
 
     }
 
@@ -34,10 +36,9 @@ public class FMLiveApplication extends Application {
     }
 
 
-    private void initLiveSDK(){
-        int[] sdkver = TXLivePusher.getSDKVersion();
-        if (sdkver != null && sdkver.length >= 3) {
-            Log.d("rtmpsdk","rtmp sdk version is:" + sdkver[0] + "." + sdkver[1] + "." + sdkver[2]);
-        }
+    private void initSDK(){
+
+        IMInitMgr.init(getApplicationContext());
+
     }
 }

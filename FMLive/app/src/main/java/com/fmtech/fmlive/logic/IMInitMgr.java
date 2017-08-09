@@ -4,6 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
 
+import com.fmtech.fmlive.base.TCConstants;
+import com.tencent.TIMGroupSettings;
+import com.tencent.TIMManager;
+import com.tencent.TIMUserStatusListener;
+
 /**
  * ==================================================================
  * Copyright (C) 2017 MTel Limited All Rights Reserved.

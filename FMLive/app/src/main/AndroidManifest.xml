@@ -25,7 +25,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".ui.activity.SplashActivity"
+            android:name=".activity.SplashActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
@@ -37,17 +37,17 @@
         </activity>
 
         <activity
-            android:name=".ui.activity.LoginActivity"
+            android:name=".activity.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/LoginTheme" />
 
         <activity
-            android:name=".ui.activity.RegisterActivity"
+            android:name=".activity.RegisterActivity"
             android:screenOrientation="portrait"
             android:theme="@style/RegisterTheme" />
 
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
